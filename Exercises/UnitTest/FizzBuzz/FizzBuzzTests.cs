@@ -1,5 +1,5 @@
-﻿using Exercises.FizzBuzz;
-using NUnit.Framework;
+﻿using NUnit.Framework;
+using static Exercises.FizzBuzz.FizzBuzz;
 
 namespace UnitTest.FizzBuzz
 {
@@ -14,7 +14,7 @@ namespace UnitTest.FizzBuzz
         [TestCase(15, "12Fizz4BuzzFizz78FizzBuzz11Fizz1314FizzBuzz")]
         public void FizzBuzzShouldReturnCorrectValue(int input, string expected)
         {
-            var result = new Exercises.FizzBuzz.FizzBuzz().GetFizzBuzz(input);
+            var result = GetFizzBuzz(input);
 
             Assert.AreEqual(expected, result);
         }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static Exercises.Fibonacci.Fibonacci;
 
 namespace Exercises
 {
@@ -10,7 +11,7 @@ namespace Exercises
     {
         static void Main(string[] args)
         {
-            var fib = new Fibonacci.Fibonacci().GetFibonacciValue(50);
+            var fib = GetFibonacciValue(50);
             Console.WriteLine(fib);
             Console.ReadKey();
         }

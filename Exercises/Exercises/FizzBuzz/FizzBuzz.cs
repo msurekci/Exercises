@@ -2,9 +2,9 @@
 
 namespace Exercises.FizzBuzz
 {
-    public class FizzBuzz
+    public static class FizzBuzz
     {
-        public string GetFizzBuzz(int number)
+        public static string GetFizzBuzz(int number)
         {
             var result = new StringBuilder("");
             for (int i = 1; i <= number; i++)
