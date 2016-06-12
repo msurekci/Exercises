@@ -44,6 +44,16 @@ namespace Exercises.RomanNumerals
                 return false;
             }
 
+            if (romanNumeral.Length >= 4)
+            {
+                if (romanNumeral.Where((romanCharacter, i) => romanCharacter == romanNumeral[i + 1]
+                                                              && romanCharacter == romanNumeral[i + 2]
+                                                              && romanCharacter == romanNumeral[i + 3]).Any())
+                {
+                    return false;
+                }
+            }
+
             int numberOfCharactersChecked = 0;
 
             for (var i = 0; i < romanNumeral.Length; i++)

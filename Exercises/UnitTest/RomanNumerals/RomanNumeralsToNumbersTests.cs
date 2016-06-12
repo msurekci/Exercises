@@ -27,6 +27,7 @@ namespace UnitTest.RomanNumerals
         [TestCase("aaa", false)]
         [TestCase("IV", true)]
         [TestCase("IA", false)]
+        [TestCase("IIII", false)]
         public void RomanNumeralShouldValidateTheRomanNumeralPassedIn(string romanNumeral, bool expectedResult)
         {
             var result = new RomanNumeralConverter().ValidRomanNumeral(romanNumeral);
