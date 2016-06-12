@@ -54,11 +54,17 @@ namespace Exercises.RomanNumerals
                 }
             }
 
+            return IsInvalidRomanNumeralCharacter(romanNumeral);
+        }
+
+        bool IsInvalidRomanNumeralCharacter(string romanNumeral)
+        {
             int numberOfCharactersChecked = 0;
 
             for (var i = 0; i < romanNumeral.Length; i++)
             {
-                numberOfCharactersChecked += romanNumerals.Where((t, position) => romanNumeral[i] == romanNumerals.ElementAt(position).Key).Count();
+                numberOfCharactersChecked +=
+                    romanNumerals.Where((t, position) => romanNumeral[i] == romanNumerals.ElementAt(position).Key).Count();
             }
 
             return numberOfCharactersChecked == romanNumeral.Length;
