@@ -5,8 +5,6 @@ namespace UnitTest.RomanNumerals
 {
     public class RomanNumeralsToNumbersTests
     {
-        [TestCase(null, null)]
-        [TestCase("aaa", null)]
         [TestCase("I", 1)]
         [TestCase("II", 2)]
         [TestCase("III", 3)]
@@ -23,6 +21,17 @@ namespace UnitTest.RomanNumerals
             var result = new RomanNumeralConverter().Convert(romanNumeral);
 
             Assert.AreEqual(expectedArabicNumber, result);
+        }
+
+        [TestCase(null, false)]
+        [TestCase("aaa", false)]
+        [TestCase("IV", true)]
+        [TestCase("IA", false)]
+        public void RomanNumeralShouldValidateTheRomanNumeralPassedIn(string romanNumeral, bool expectedResult)
+        {
+            var result = new RomanNumeralConverter().ValidRomanNumeral(romanNumeral);
+
+            Assert.AreEqual(result, expectedResult);
         }
     }
 }

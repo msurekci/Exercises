@@ -7,6 +7,7 @@ namespace Exercises.RomanNumerals
     public class RomanNumeralConverter
     {
         readonly Dictionary<char, int> romanNumerals = new Dictionary<char, int> { { 'I', 1 }, { 'V', 5 }, { 'X', 10 } }; 
+
         public int Convert(string romanNumeral)
         {
             int result = 0;
@@ -34,6 +35,23 @@ namespace Exercises.RomanNumerals
             } 
                      
             return result;
+        }
+
+        public bool ValidRomanNumeral(string romanNumeral)
+        {
+            if (romanNumeral == null)
+            {
+                return false;
+            }
+
+            int numberOfCharactersChecked = 0;
+
+            for (var i = 0; i < romanNumeral.Length; i++)
+            {
+                numberOfCharactersChecked += romanNumerals.Where((t, position) => romanNumeral[i] == romanNumerals.ElementAt(position).Key).Count();
+            }
+
+            return numberOfCharactersChecked == romanNumeral.Length;
         }
     }
 }
