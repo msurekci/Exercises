@@ -1,4 +1,5 @@
-﻿using Exercises.RomanNumerals;
+﻿using System;
+using Exercises.RomanNumerals;
 using NUnit.Framework;
 
 namespace UnitTest.RomanNumerals
@@ -8,7 +9,6 @@ namespace UnitTest.RomanNumerals
         [TestCase("I", 1)]
         [TestCase("II", 2)]
         [TestCase("III", 3)]
-        [TestCase("IIII", 4)]//shouldnt
         [TestCase("IV", 4)]
         [TestCase("V", 5)]
         [TestCase("VI", 6)]
@@ -35,6 +35,14 @@ namespace UnitTest.RomanNumerals
             var result = new RomanNumeralConverter().ValidRomanNumeral(romanNumeral);
 
             Assert.AreEqual(result, expectedResult);
+        }
+
+        [Test]
+        public void ConverterShouldThrowExceptionIfIncorrectRomanNumeralIsInputted()
+        {
+            var sut = new RomanNumeralConverter();
+
+            Assert.Throws<ArgumentException>(() => sut.Convert("aaa"));
         }
     }
 }

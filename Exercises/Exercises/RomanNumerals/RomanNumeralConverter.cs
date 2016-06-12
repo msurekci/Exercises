@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,6 +11,11 @@ namespace Exercises.RomanNumerals
 
         public int Convert(string romanNumeral)
         {
+            if (!ValidRomanNumeral(romanNumeral))
+            {
+                throw new ArgumentException("The roman numeral inputted is incorrect");
+            }
+
             int result = 0;
 
             var remainingRomanNumeral = new StringBuilder(romanNumeral);
@@ -46,11 +52,13 @@ namespace Exercises.RomanNumerals
 
             if (romanNumeral.Length >= 4)
             {
-                if (romanNumeral.Where((romanCharacter, i) => romanCharacter == romanNumeral[i + 1]
-                                                              && romanCharacter == romanNumeral[i + 2]
-                                                              && romanCharacter == romanNumeral[i + 3]).Any())
+                for (var i = 0; i < romanNumeral.Length - 3; i++)
                 {
-                    return false;
+                    if (romanNumeral[i] == romanNumeral[i + 1] && romanNumeral[i] == romanNumeral[i + 2]
+                        && romanNumeral[i] == romanNumeral[i + 3])
+                    {
+                        return false;
+                    }
                 }
             }
 
