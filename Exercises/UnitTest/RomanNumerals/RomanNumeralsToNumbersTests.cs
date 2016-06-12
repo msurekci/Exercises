@@ -16,6 +16,8 @@ namespace UnitTest.RomanNumerals
         [TestCase("IX", 9)]
         [TestCase("X", 10)]
         [TestCase("XI", 11)]
+        [TestCase("MCMLXXXIX", 1989)]
+        [TestCase("MMMCMXCIX", 3999)]
         public void RomanNumeralShouldBeConvertedToCorrectArabicNumbers(string romanNumeral, int expectedArabicNumber)
         {
             var result = new RomanNumeralConverter().Convert(romanNumeral);
